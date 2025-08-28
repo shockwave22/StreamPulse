@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: streampulse
+      POSTGRES_USER: streampulse
+      POSTGRES_PASSWORD: streampulse_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  streampulse:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - DATABASE_URL=postgresql://streampulse:streampulse_password@postgres:5432/streampulse
+    depends_on:
+      - postgres
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    command: streamlit run dashboard/app.py --server.port=8501 --server.address=0.0.0.0
+
+  airflow-webserver:
+    image: apache/airflow:2.7.2
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql://streampulse:streampulse_password@postgres:5432/streampulse
+    depends_on:
+      - postgres
+    volumes:
+      - ./airflow_dags:/opt/airflow/dags
+      - ./:/opt/airflow/dags/streampulse
+    ports:
+      - "8080:8080"
+    command: webserver
+
+volumes:
+  postgres_data:
