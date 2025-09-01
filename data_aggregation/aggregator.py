@@ -1,7 +1,7 @@
 import logging
 from datetime import datetime, timedelta
 from typing import Dict, List
-from sqlalchemy import func, and_
+from sqlalchemy import func, and_, cast, Integer
 from database.models import (
     NetflixTitle, Tweet, RedditComment, SurveyResponse, 
     SentimentScore, AggregatedMetrics
@@ -130,7 +130,8 @@ class DataAggregator:
         survey_query = session.query(
             func.avg(SurveyResponse.satisfaction_score).label('avg_satisfaction'),
             func.avg(SurveyResponse.completion_rate).label('avg_completion'),
-            func.avg(SurveyResponse.would_recommend.cast('integer')).label('recommendation_rate'),
+            #func.avg(SurveyResponse.would_recommend.cast('integer')).label('recommendation_rate'),
+            func.avg(cast(SurveyResponse.would_recommend, Integer)).label('recommendation_rate'),
             func.count(SurveyResponse.id).label('total_count')
         ).filter(
             and_(

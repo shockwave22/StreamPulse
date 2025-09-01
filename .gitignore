@@ -1,0 +1,83 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.manifest
+*.spec
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+.Python
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Logs
+logs/
+*.log
+
+# Data
+data/
+*.sqlite
+*.db
+*.csv
+*.tsv
+*.dat
+*.h5
+*.json
+
+# Airflow
+airflow.db
+airflow.cfg
+dags/__pycache__/
+airflow_dags/__pycache__/
+.airflow/
+
+# Streamlit
+.streamlit/
+.streamlit/*.toml
+.streamlit/*.json
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Mac OS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Test and coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.pytest_cache/
+.cache/
+nosetests.xml
+test-results.xml
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+
+# Environment files
+.env
+.env.*
