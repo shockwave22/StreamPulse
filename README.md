@@ -1,8 +1,12 @@
-# 📺 StreamPulse: Netflix Sentiment Dashboard
+# StreamPulse: Netflix Sentiment Dashboard
+
+**Link:** https://netflixpulse.streamlit.app/
 
 A comprehensive data pipeline and dashboard application that ingests social media data and survey data, performs sentiment analysis, and displays consumer insights about Netflix original content over time.
 
-## 🚀 Features
+<img width="1854" height="922" alt="image" src="https://github.com/user-attachments/assets/f3022d9d-a56d-4580-8f3b-8e038d460c9c" />
+
+## Features
 
 - **Multi-Platform Data Ingestion**: Twitter, Reddit, and Survey data collection
 - **Advanced Sentiment Analysis**: VADER and Transformer-based models
@@ -10,14 +14,14 @@ A comprehensive data pipeline and dashboard application that ingests social medi
 - **Automated Pipeline**: Airflow orchestration for scheduled data processing
 - **Comprehensive Analytics**: Trend analysis, comparison views, and keyword insights
 
-## 📋 Requirements
+## Requirements
 
 - Python 3.9+
 - PostgreSQL (optional, SQLite included for development)
 - Twitter Developer Account
 - Reddit API Access
 
-## 🛠️ Quick Start
+## Quick Start
 
 ### 1. Clone and Setup
 
@@ -65,7 +69,7 @@ streamlit run dashboard/app.py
 
 The dashboard will be available at `http://localhost:8501`
 
-## 🐳 Docker Deployment
+## Docker Deployment
 
 ```bash
 # Start all services
@@ -75,7 +79,7 @@ docker-compose up -d
 # Access Airflow at http://localhost:8080
 ```
 
-## 📊 Dashboard Features
+## Dashboard Features
 
 ### Overview Tab
 - Total posts/comments metrics
@@ -103,7 +107,7 @@ docker-compose up -d
 - Engagement metrics
 - Content filtering options
 
-## 🔄 Data Pipeline
+## Data Pipeline
 
 The pipeline consists of four main stages:
 
@@ -120,7 +124,7 @@ The pipeline runs automatically every 6 hours:
 - Update aggregated metrics
 - Refresh dashboard data
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 StreamPulse/
@@ -166,7 +170,7 @@ StreamPulse/
 - **VADER**: Rule-based sentiment analysis (default)
 - **Transformers**: DistilBERT fine-tuned model (optional)
 
-## 📈 Usage Examples
+## Usage Examples
 
 ### Manual Data Collection
 ```bash
@@ -184,7 +188,7 @@ collector = TwitterCollector()
 tweets = collector.collect_tweets_for_title("Stranger Things", max_results=50)
 ```
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Run tests
@@ -195,14 +199,14 @@ pytest tests/test_sentiment_analysis.py
 pytest tests/test_data_ingestion.py
 ```
 
-## 🔒 Security Considerations
+## Security Considerations
 
 - Store API credentials in environment variables
 - Use read-only database credentials for dashboard
 - Implement rate limiting for API calls
 - Regular security updates for dependencies
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -210,11 +214,11 @@ pytest tests/test_data_ingestion.py
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -239,7 +243,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Review logs in the `logs/` directory
 - Enable debug logging: `LOG_LEVEL=DEBUG`
 
-## 📊 Performance Tips
+## Performance Tips
 
 - Use PostgreSQL for production deployments
 - Configure database connection pooling
@@ -248,5 +252,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Use batch processing for sentiment analysis
 
 ---
-
-**Built with ❤️ by the StreamPulse Team**
