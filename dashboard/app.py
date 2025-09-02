@@ -24,6 +24,22 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Sidebar for API credentials
+st.sidebar.header("API Credentials")
+twitter_bearer_token = st.sidebar.text_input("Twitter Bearer Token", type="password")
+#twitter_api_key = st.sidebar.text_input("Twitter API Key")
+#twitter_api_secret = st.sidebar.text_input("Twitter API Secret", type="password")
+#twitter_access_token = st.sidebar.text_input("Twitter Access Token", type="password")
+#twitter_access_token_secret = st.sidebar.text_input("Twitter Access Token Secret", type="password")
+
+reddit_client_id = st.sidebar.text_input("Reddit Client ID")
+reddit_client_secret = st.sidebar.text_input("Reddit Client Secret", type="password")
+reddit_user_agent = st.sidebar.text_input("Reddit User Agent")
+
+# Pass these variables to your data ingestion modules instead of reading from .env
+
+
+
 class StreamPulseDashboard:
     def __init__(self):
         self.aggregator = DataAggregator()
